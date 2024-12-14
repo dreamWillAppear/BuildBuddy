@@ -3,11 +3,13 @@ import SwiftUI
 //Мы используем UIHostingController для отображения SwiftUI View внутри UIKit.
 //addChild добавляет UIHostingController как дочерний контроллер, а view.addSubview добавляет его представление.
 //
-
 final class AppsCollectionViewController: UIViewController {
+    
+    let viewModel = AppsCollectionViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let swiftUIView = AppsCollectionView()
+        let swiftUIView = AppsCollectionView(apps: viewModel.appsStorage)
         let hostingController = UIHostingController(rootView: swiftUIView)
         
         // SwiftUI View как дочерний UIView

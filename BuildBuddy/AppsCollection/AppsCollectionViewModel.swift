@@ -4,6 +4,10 @@ class AppsCollectionViewModel {
     
     private(set) var appsStorage: [AppsCollectionModel] = []
     
+    init() {
+        fetchApps()
+    }
+    
     func fetchApps() {
         self.appsStorage = [
             AppsCollectionModel(id: UUID(), name: "Лицо Коллеги", icon: "facedStaffIco"),
