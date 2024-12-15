@@ -10,7 +10,7 @@ struct AppsCollectionView: View {
                 GridItem(.flexible()),
                 GridItem(.flexible()),
                 GridItem(.flexible())
-            ], spacing: 16
+            ], spacing: 0
             ) {
                 ForEach(apps, id: \.id) { app in
                     VStack {
@@ -19,7 +19,8 @@ struct AppsCollectionView: View {
                             .frame(width: 80, height: 80, alignment: .center)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                         Text(app.name)
-                            .font(.headline)
+                            .font(.system(size: 10))
+                            .fontWeight(.semibold)
                             .multilineTextAlignment(.center)
                     }
                     .padding()
@@ -43,7 +44,7 @@ struct AppsCollectionView_Previews: PreviewProvider {
             AppsCollectionModel(id: UUID(), name: "Сфера", icon: "sphereIco"),
             AppsCollectionModel(id: UUID(), name: "Лицо Коллеги", icon: "facedStaffIco"),
             AppsCollectionModel(id: UUID(), name: "Банк Чат", icon: "bankChatIco"),
-            AppsCollectionModel(id: UUID(), name: "Банк Почта", icon: "bankMailIco"),
+            AppsCollectionModel(id: UUID(), name: "Автоматизация Задач", icon: "bankMailIco"),
             AppsCollectionModel(id: UUID(), name: "Контракторы", icon: "contractorsIco"),
             AppsCollectionModel(id: UUID(), name: "Сфера", icon: "sphereIco"),
             AppsCollectionModel(id: UUID(), name: "Лицо Коллеги", icon: "facedStaffIco"),
