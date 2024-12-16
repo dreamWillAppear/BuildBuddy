@@ -16,7 +16,6 @@ final class AppsCollectionViewController: UIViewController {
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.didMove(toParent: self)
-        
         hostingController.view.frame = view.bounds
     }
 }
