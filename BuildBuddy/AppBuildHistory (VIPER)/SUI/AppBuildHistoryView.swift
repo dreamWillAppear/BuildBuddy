@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AppBuildHistoryView: View {
-    let data: AppBuildHistoryModel?
+    @Binding var data: AppBuildHistoryModel?
     
     var body: some View {
         VStack{
@@ -26,26 +26,31 @@ struct AppBuildHistoryView: View {
                 }
                 .listStyle(PlainListStyle())
                 .frame(maxWidth: .infinity)
+            } else {
+                Text("NO DATA")
+                    .font(.largeTitle)
             }
         }
     }
 }
 
 struct AppBuildHistoryView_previews: PreviewProvider {
+    @State static var mockData: AppBuildHistoryModel? = AppBuildHistoryModel(
+        name: "Лицо Друга",
+                icon: "facedStaffIco",
+                description: "Корпоративный справочник",
+                builds: [
+                    BuildVersion(releaseDate: "23.12.2023", version: "7.3.1"),
+                    BuildVersion(releaseDate: "14.12.2023", version: "7.3"),
+                    BuildVersion(releaseDate: "26.11.2023", version: "7.2.5")
+                ]
+    )
+    
     static var previews: some View {
-        AppBuildHistoryView(
-            data:
-                AppBuildHistoryModel(
-                    name: mockDataAppBuildHistory.name,
-                    icon: mockDataAppBuildHistory.icon,
-                    description: mockDataAppBuildHistory.description,
-                    builds: [
-                        BuildVersion(releaseDate: "23.12.2023", version: "7.3.1"),
-                        BuildVersion(releaseDate: "14.12.2023", version: "7.3"),
-                        BuildVersion(releaseDate: "26.11.2023", version: "7.3")
-                    ]
-                )
-        )
+        AppBuildHistoryView(data: .constant(mockData))
+            .previewLayout(.sizeThatFits)
+            .padding()
     }
+    
 }
 

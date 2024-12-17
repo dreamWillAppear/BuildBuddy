@@ -3,6 +3,7 @@ import SwiftUI
 struct AppsCollectionView: View {
     
     let apps: [AppsCollectionModel]
+    let onAppSelected: (AppsCollectionModel) -> Void
     
     var body: some View {
         ScrollView{
@@ -22,6 +23,9 @@ struct AppsCollectionView: View {
                             .multilineTextAlignment(.center)
                     }
                     .padding()
+                    .onTapGesture {
+                        onAppSelected(app)
+                    }
                 }
             }
         }
@@ -45,6 +49,6 @@ struct AppsCollectionView_Previews: PreviewProvider {
             AppsCollectionModel(id: UUID(), name: "Контроль Складов", icon: "warehouseControlIco"),
             AppsCollectionModel(id: UUID(), name: "Центр Управления", icon: "controlCenterIco"),
             
-        ])
+        ], onAppSelected: {_ in })
     }
 }

@@ -12,6 +12,8 @@ final class AppBuildHistoryInteractor: AppBuildHistoryInteractorProtocol {
         
         if let presenter = presenter {
             presenter.presentAppBuildHistory(data: mockData)
+        } else {
+            print("presenter is nil")
         }
     }
     

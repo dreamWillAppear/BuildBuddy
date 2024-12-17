@@ -10,9 +10,16 @@ final class AppBuildHistoryViewController: UIViewController, AppBuildHistoryView
     var presenter: AppBuildHistoryPresenterProtocol!
     
     private var hostingController: UIHostingController<AppBuildHistoryView>?
+    private var appBuildHistoryData: AppBuildHistoryModel? = nil {
+        didSet {
+            hostingController?.rootView = AppBuildHistoryView(data: .constant(appBuildHistoryData))
+        }
+    }
     
     override func viewDidLoad() {
-        let swiftUIView = AppBuildHistoryView(data: nil)
+        super.viewDidLoad()
+        presenter.viewDidLoad()
+        let swiftUIView = AppBuildHistoryView(data: .constant(appBuildHistoryData))
         let hostingController = UIHostingController(rootView: swiftUIView)
     
         addChild(hostingController)
@@ -24,6 +31,6 @@ final class AppBuildHistoryViewController: UIViewController, AppBuildHistoryView
     }
     
     func displayAppBuildHistory(data: AppBuildHistoryModel) {
-        hostingController?.rootView = AppBuildHistoryView(data: data)
+        appBuildHistoryData = data
     }
 }

@@ -4,5 +4,4 @@ protocol AppBuildHistoryRouterProtcol: AnyObject {
 
 final class AppBuildHistoryRouter: AppBuildHistoryRouterProtcol {
     weak var viewController: AppBuildHistoryViewProtocol?
-    
 }
