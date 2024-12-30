@@ -34,23 +34,37 @@ struct AppBuildHistoryView: View {
     }
 }
 
-struct AppBuildHistoryView_previews: PreviewProvider {
-    @State static var mockData: AppBuildHistoryModel? = AppBuildHistoryModel(
+//struct AppBuildHistoryView_previews: PreviewProvider {
+//    @State static var mockData: AppBuildHistoryModel? = AppBuildHistoryModel(
+//        name: "Лицо Друга",
+//                icon: "facedStaffIco",
+//                description: "Корпоративный справочник",
+//                builds: [
+//                    BuildVersion(releaseDate: "23.12.2023", version: "7.3.1"),
+//                    BuildVersion(releaseDate: "14.12.2023", version: "7.3"),
+//                    BuildVersion(releaseDate: "26.11.2023", version: "7.2.5")
+//                ]
+//    )
+//    
+//    static var previews: some View {
+//        AppBuildHistoryView(data: .constant(mockData))
+//            .previewLayout(.sizeThatFits)
+//            .padding()
+//    }
+//    
+//}
+
+#Preview {
+    @State var mokeData = AppBuildHistoryModel(
         name: "Лицо Друга",
-                icon: "facedStaffIco",
-                description: "Корпоративный справочник",
-                builds: [
-                    BuildVersion(releaseDate: "23.12.2023", version: "7.3.1"),
-                    BuildVersion(releaseDate: "14.12.2023", version: "7.3"),
-                    BuildVersion(releaseDate: "26.11.2023", version: "7.2.5")
-                ]
+        icon: "facedStaffIco",
+        description: "Корпоративный справочник",
+        builds: [
+            BuildVersion(releaseDate: "23.12.2023", version: "7.3.1"),
+            BuildVersion(releaseDate: "14.12.2023", version: "7.3"),
+            BuildVersion(releaseDate: "26.11.2023", version: "7.2.5")
+        ]
     )
     
-    static var previews: some View {
-        AppBuildHistoryView(data: .constant(mockData))
-            .previewLayout(.sizeThatFits)
-            .padding()
-    }
-    
+    AppBuildHistoryView(data: .constant(mokeData))
 }
-

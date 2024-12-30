@@ -34,21 +34,20 @@ struct AppsCollectionView: View {
     }
 }
 
-struct AppsCollectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppsCollectionView(apps:[
-            AppsCollectionModel(id: UUID(), name: "Лицо Коллеги", icon: "facedStaffIco"),
-            AppsCollectionModel(id: UUID(), name: "Банк Чат", icon: "bankChatIco"),
-            AppsCollectionModel(id: UUID(), name: "Банк Почта", icon: "bankMailIco"),
-            AppsCollectionModel(id: UUID(), name: "Контракторы", icon: "contractorsIco"),
-            AppsCollectionModel(id: UUID(), name: "Сфера", icon: "sphereIco"),
-            AppsCollectionModel(id: UUID(), name: "CRM Комета", icon: "crmCometIco"),
-            AppsCollectionModel(id: UUID(), name: "HR Космос", icon: "hrCosmosIco"),
-            AppsCollectionModel(id: UUID(), name: "Реестр Договоров", icon: "contractRegistryIco"),
-            AppsCollectionModel(id: UUID(), name: "Финансовый Анализ", icon: "financeAnalysisIco"),
-            AppsCollectionModel(id: UUID(), name: "Контроль Складов", icon: "warehouseControlIco"),
-            AppsCollectionModel(id: UUID(), name: "Центр Управления", icon: "controlCenterIco"),
-            
-        ], onAppSelected: {_ in })
-    }
+#Preview {
+    let mokeData =  [
+        AppsCollectionModel(id: UUID(), name: "Лицо Коллеги", icon: "facedStaffIco"),
+        AppsCollectionModel(id: UUID(), name: "Банк Чат", icon: "bankChatIco"),
+        AppsCollectionModel(id: UUID(), name: "Банк Почта", icon: "bankMailIco"),
+        AppsCollectionModel(id: UUID(), name: "Контракторы", icon: "contractorsIco"),
+        AppsCollectionModel(id: UUID(), name: "Сфера", icon: "sphereIco"),
+        AppsCollectionModel(id: UUID(), name: "CRM Комета", icon: "crmCometIco"),
+        AppsCollectionModel(id: UUID(), name: "HR Космос", icon: "hrCosmosIco"),
+        AppsCollectionModel(id: UUID(), name: "Реестр Договоров", icon: "contractRegistryIco"),
+        AppsCollectionModel(id: UUID(), name: "Финансовый Анализ", icon: "financeAnalysisIco"),
+        AppsCollectionModel(id: UUID(), name: "Контроль Складов", icon: "warehouseControlIco"),
+        AppsCollectionModel(id: UUID(), name: "Центр Управления", icon: "controlCenterIco"),
+    ]
+    
+    AppsCollectionView(apps: mokeData, onAppSelected: { _ in})
 }
