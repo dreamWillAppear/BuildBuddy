@@ -7,7 +7,7 @@ protocol BuildInfoDisplayLogic: AnyObject {
 final class BuildInfoViewController: UIViewController, BuildInfoDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
-        let swiftUIView = BuildInfoView()
+        let swiftUIView = ColorPickerView()
         let hostingController = UIHostingController(rootView: swiftUIView)
         hostingController.view.frame = view.bounds
         addChild(hostingController)

@@ -6,7 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BF1B2BF40D62DC92951DC495 /* Pods_BuildBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C4CFA70C9F4C43A7CECAED /* Pods_BuildBuddy.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		B6C4CFA70C9F4C43A7CECAED /* Pods_BuildBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuildBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D87715E044A9BABF7B6B44FD /* Pods-BuildBuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuildBuddy.release.xcconfig"; path = "Target Support Files/Pods-BuildBuddy/Pods-BuildBuddy.release.xcconfig"; sourceTree = "<group>"; };
+		F4A84733FF84740D8531418E /* Pods-BuildBuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuildBuddy.debug.xcconfig"; path = "Target Support Files/Pods-BuildBuddy/Pods-BuildBuddy.debug.xcconfig"; sourceTree = "<group>"; };
 		FD16100F2D0E046600C89C61 /* BuildBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1B2BF40D62DC92951DC495 /* Pods_BuildBuddy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6021594B6B96A04212D8E73B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6C4CFA70C9F4C43A7CECAED /* Pods_BuildBuddy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6BE3688C7F2450049E58BD8B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4A84733FF84740D8531418E /* Pods-BuildBuddy.debug.xcconfig */,
+				D87715E044A9BABF7B6B44FD /* Pods-BuildBuddy.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FD1610062D0E046500C89C61 = {
 			isa = PBXGroup;
 			children = (
 				FD1610112D0E046600C89C61 /* BuildBuddy */,
 				FD1610102D0E046600C89C61 /* Products */,
+				6BE3688C7F2450049E58BD8B /* Pods */,
+				6021594B6B96A04212D8E73B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,8 +92,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD1610222D0E046700C89C61 /* Build configuration list for PBXNativeTarget "BuildBuddy" */;
 			buildPhases = (
+				6C53D931A82EB5E04DBF90C5 /* [CP] Check Pods Manifest.lock */,
 				FD16100B2D0E046500C89C61 /* Sources */,
-				FDB3016F2D2226E00033062D /* ShellScript */,
 				FD16100C2D0E046500C89C61 /* Frameworks */,
 				FD16100D2D0E046500C89C61 /* Resources */,
 			);
@@ -78,8 +105,6 @@
 				FD1610112D0E046600C89C61 /* BuildBuddy */,
 			);
 			name = BuildBuddy;
-			packageProductDependencies = (
-			);
 			productName = BuildBuddy;
 			productReference = FD16100F2D0E046600C89C61 /* BuildBuddy.app */;
 			productType = "com.apple.product-type.application";
@@ -129,7 +154,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		FDB3016F2D2226E00033062D /* ShellScript */ = {
+		6C53D931A82EB5E04DBF90C5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -137,14 +162,19 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BuildBuddy-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -161,6 +191,7 @@
 /* Begin XCBuildConfiguration section */
 		FD1610232D0E046700C89C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4A84733FF84740D8531418E /* Pods-BuildBuddy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -194,6 +225,7 @@
 		};
 		FD1610242D0E046700C89C61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D87715E044A9BABF7B6B44FD /* Pods-BuildBuddy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
