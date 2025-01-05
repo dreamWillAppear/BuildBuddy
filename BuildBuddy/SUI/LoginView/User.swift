@@ -1,4 +1,4 @@
 struct User {
-    let username: String
-    let isLoggedIn: Bool
+    var username: String
+    var isLoggedIn: Bool
 }

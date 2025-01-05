@@ -3,45 +3,36 @@ import Combine
 
 final class LoginViewViewModel: ObservableObject {
     @Published private(set) var user: User
-    @Published var isLoggedIn = false
+    @Published private(set) var usernameIsValid = false
     @Published var username = "" {
         didSet {
             usernameIsValid = username.count >= 3
         }
     }
     
-    @Published private(set) var usernameIsValid = false
-    
     private var storageManager = StorageManager.shared
     
     init(storageManager: StorageManager = .shared) {
         self.storageManager = storageManager
+        let savedUsername = storageManager.username
         self.user = User(
-            username: storageManager.username,
-            isLoggedIn: !storageManager.username.isEmpty
+            username: savedUsername,
+            isLoggedIn: !savedUsername.isEmpty
         )
+        self.username = savedUsername
+        self.usernameIsValid = savedUsername.count >= 3
     }
-        
+    
     func didTapLoginButton() {
-        guard username.count >= 3 else {
-            return
-        }
-        
+        guard usernameIsValid else { return }
+        user.username = username
+        user.isLoggedIn = true
         storageManager.username = username
-        isLoggedIn = true
     }
     
     func didTapLogoutButton() {
         username.removeAll()
         storageManager.username.removeAll()
-        isLoggedIn = false
+        user.isLoggedIn = false
     }
-    
-    private func checkLogin() {
-        if storageManager.username.count > 0 {
-            isLoggedIn = true
-        }
-    }
-    
 }
-

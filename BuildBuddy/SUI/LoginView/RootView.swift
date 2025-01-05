@@ -5,7 +5,7 @@ struct RootView: View {
     
     var body: some View {
         ZStack {
-            if loginViewVM.isLoggedIn {
+            if loginViewVM.user.isLoggedIn {
                 ContentView()
             } else {
                 LoginView()
