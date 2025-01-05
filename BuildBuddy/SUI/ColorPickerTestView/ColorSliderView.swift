@@ -9,7 +9,8 @@ struct ColorSliderView: View {
     
     var body: some View {
         HStack {
-            Text(text).foregroundStyle(.white)
+            Text(text)
+                .foregroundStyle(.white)
                 .frame(width: 50)
             Slider(
                 value: Binding(

@@ -9,8 +9,6 @@ struct ColorPickerView: View {
     
     var body: some View {
         ZStack {
-            Color.cyan
-                .ignoresSafeArea()
             
             VStack {
                 CanvasColorView(redValue: red, greenValue: green, blueValue: blue)
@@ -31,6 +29,7 @@ struct ColorPickerView: View {
                 }
             }
         }
+        .background(Color.cyan)
         .onTapGesture {
             isInputActive = false
         }

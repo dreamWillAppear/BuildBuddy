@@ -18,7 +18,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		FD1610212D0E046700C89C61 /* Exceptions for "BuildBuddy" folder in "BuildBuddy" target */ = {
+		FD9EA0232D2832FE005C8E8B /* Exceptions for "BuildBuddy" folder in "BuildBuddy" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -31,7 +31,7 @@
 		FD1610112D0E046600C89C61 /* BuildBuddy */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				FD1610212D0E046700C89C61 /* Exceptions for "BuildBuddy" folder in "BuildBuddy" target */,
+				FD9EA0232D2832FE005C8E8B /* Exceptions for "BuildBuddy" folder in "BuildBuddy" target */,
 			);
 			path = BuildBuddy;
 			sourceTree = "<group>";
