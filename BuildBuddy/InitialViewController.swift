@@ -3,11 +3,11 @@ import SwiftUI
 final class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
-        let swiftUIView = RootView()
+        super.viewDidLoad()
+        print(Bundle.main.paths(forResourcesOfType: "nib", inDirectory: nil))
         let hostingController = UIHostingController(
-            rootView: swiftUIView
-                .environmentObject(ContentViewViewModel())
-                .environmentObject(LoginViewViewModel())
+            rootView: PickMeView()
+                .environmentObject(PickMeViewViewModel())
         )
         
         hostingController.view.frame = view.bounds

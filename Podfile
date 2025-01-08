@@ -8,5 +8,6 @@ target 'BuildBuddy' do
   # Pods for BuildBuddy
 
 pod 'SwiftLint'
+pod 'TimelineTableViewCell'
 
 end
