@@ -24,9 +24,11 @@ struct PickMeView: View {
             Button("Restart", action: { pickMeViewVM.didTapRestartButton() })
         }
         .padding(.all, 16)
-        .alert("Result", isPresented: $pickMeViewVM.isResultAlertPresented, actions: {
-            Button("Restart", action: { pickMeViewVM.didTapRestartButton() })
-        }) {
+        .alert(
+            "Result",
+            isPresented: $pickMeViewVM.isResultAlertPresented,
+            actions: {
+            }) {
             Text("Your Score: \(pickMeViewVM.pickMe.result)")
         }
     }

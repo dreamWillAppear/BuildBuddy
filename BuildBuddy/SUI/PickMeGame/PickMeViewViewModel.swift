@@ -1,7 +1,14 @@
 import SwiftUI
 
 final class PickMeViewViewModel: ObservableObject {
-    @Published var isResultAlertPresented = false
+    @Published var isResultAlertPresented = false {
+        didSet {
+            if isResultAlertPresented == false {
+                self.didTapRestartButton()
+            }
+        }
+    }
+    
     @Published var alpha: CGFloat = 1
     @Published var pickMe = PickMe(
         target: Float(Int.random(in: 1...100)),
